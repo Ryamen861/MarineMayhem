@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://chk5trq6nxn52"]
+
+[ext_resource type="PackedScene" uid="uid://r6jyrpg844xl" path="res://plankton.tscn" id="1_p317e"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uxpyp"]
+
+[node name="Game" type="Node"]
+
+[node name="Plankton" parent="." instance=ExtResource("1_p317e")]
+position = Vector2(213, 320)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(209, 135)
+zoom = Vector2(0.25, 0.25)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(190, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 8)
+shape = SubResource("WorldBoundaryShape2D_uxpyp")

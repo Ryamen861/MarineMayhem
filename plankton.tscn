@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://r6jyrpg844xl"]
+
+[ext_resource type="Texture2D" uid="uid://d1bmncg4jfxjl" path="res://addons/plankton.png" id="1_kd7to"]
+[ext_resource type="Script" path="res://plankton.gd" id="1_q82x3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nett"]
+atlas = ExtResource("1_kd7to")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jpd0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nett")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_003a5"]
+radius = 191.83
+
+[node name="Plankton" type="CharacterBody2D"]
+position = Vector2(-3, -205)
+script = ExtResource("1_q82x3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -251)
+sprite_frames = SubResource("SpriteFrames_0jpd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -251)
+shape = SubResource("CircleShape2D_003a5")
