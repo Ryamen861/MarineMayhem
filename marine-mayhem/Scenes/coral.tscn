@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxjnbwhi18qjc"]
+
+[ext_resource type="Script" path="res://Scripts/coral.gd" id="1_1cxcm"]
+[ext_resource type="Texture2D" uid="uid://di5aihrfjscsh" path="res://Assets/elkhorn coral.png" id="1_ee70p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v514"]
+size = Vector2(1463, 1399.5)
+
+[node name="Coral" type="CharacterBody2D"]
+position = Vector2(-95, 42)
+script = ExtResource("1_1cxcm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-47, -991)
+scale = Vector2(0.217103, 0.253258)
+texture = ExtResource("1_ee70p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-112.5, -782.25)
+shape = SubResource("RectangleShape2D_2v514")
