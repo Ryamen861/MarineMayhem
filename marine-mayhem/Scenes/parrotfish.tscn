@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfgeg7nix11il"]
+
+[ext_resource type="Texture2D" uid="uid://cqmny5g7164or" path="res://Assets/parrotfish.png" id="1_7bypo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00a2g"]
+size = Vector2(25, 14)
+
+[node name="Parrotfish" type="Node2D"]
+position = Vector2(13686, -23224)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7bypo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_00a2g")
