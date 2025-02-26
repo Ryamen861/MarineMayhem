@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://i3x0vjxudh3q"]
+[gd_scene load_steps=6 format=3 uid="uid://i3x0vjxudh3q"]
 
 [ext_resource type="PackedScene" uid="uid://bxjnbwhi18qjc" path="res://Scenes/coral.tscn" id="1_xnqj8"]
 [ext_resource type="PackedScene" uid="uid://cfgeg7nix11il" path="res://Scenes/parrotfish.tscn" id="2_ws5as"]
 [ext_resource type="PackedScene" uid="uid://b72vmc8rkbl33" path="res://Scenes/bottle.tscn" id="3_iuuwo"]
+[ext_resource type="Texture2D" uid="uid://bg63seb5itpq3" path="res://Assets/WaterBackground.png" id="4_h7h5t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b2m8f"]
 distance = 64.0
@@ -24,7 +25,14 @@ position = Vector2(212, -114)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(5, -34)
-zoom = Vector2(2, 2)
+scale = Vector2(0.891193, 0.782753)
+zoom = Vector2(1.9, 1.6)
 
 [node name="Bottle" parent="." instance=ExtResource("3_iuuwo")]
 position = Vector2(84, -97)
+
+[node name="WaterBackground" type="Sprite2D" parent="."]
+z_index = -6
+position = Vector2(5, -34)
+texture = ExtResource("4_h7h5t")
+metadata/_edit_lock_ = true
