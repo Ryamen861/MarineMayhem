@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://i3x0vjxudh3q"]
+[gd_scene load_steps=8 format=3 uid="uid://i3x0vjxudh3q"]
 
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_5ghd5"]
 [ext_resource type="PackedScene" uid="uid://bxjnbwhi18qjc" path="res://Scenes/coral.tscn" id="1_xnqj8"]
 [ext_resource type="PackedScene" uid="uid://cfgeg7nix11il" path="res://Scenes/parrotfish.tscn" id="2_ws5as"]
 [ext_resource type="PackedScene" uid="uid://b72vmc8rkbl33" path="res://Scenes/bottle.tscn" id="3_iuuwo"]
+[ext_resource type="Script" path="res://Scripts/parrotfish.gd" id="4_fgpsk"]
 [ext_resource type="Texture2D" uid="uid://bg63seb5itpq3" path="res://Assets/WaterBackground.png" id="4_h7h5t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b2m8f"]
 distance = 64.0
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_5ghd5")
 
 [node name="Coral" parent="." instance=ExtResource("1_xnqj8")]
 position = Vector2(47, -142)
@@ -22,6 +25,7 @@ shape = SubResource("WorldBoundaryShape2D_b2m8f")
 
 [node name="Parrotfish" parent="." instance=ExtResource("2_ws5as")]
 position = Vector2(212, -114)
+script = ExtResource("4_fgpsk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(5, -34)
