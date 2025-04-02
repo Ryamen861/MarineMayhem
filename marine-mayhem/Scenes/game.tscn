@@ -24,7 +24,7 @@ position = Vector2(-127, -2)
 shape = SubResource("WorldBoundaryShape2D_b2m8f")
 
 [node name="Parrotfish" parent="." instance=ExtResource("2_ws5as")]
-position = Vector2(212, -114)
+position = Vector2(323, -107)
 script = ExtResource("4_fgpsk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -40,3 +40,10 @@ z_index = -6
 position = Vector2(5, -34)
 texture = ExtResource("4_h7h5t")
 metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

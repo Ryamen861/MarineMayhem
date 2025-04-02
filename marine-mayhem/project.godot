@@ -14,3 +14,7 @@ config/name="Marine Mayhem"
 run/main_scene="res://Scenes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalSignal="*res://global_signal/global_signal.gd"

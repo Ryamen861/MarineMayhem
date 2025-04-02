@@ -1,26 +1,34 @@
 extends Node2D
 
-var slope: int
+var angle: float
 
-func _ready():	
+var Xrate: float
+var Yrate: float
+
+var deltaSum: float
+
+func _ready():
 	var rng = RandomNumberGenerator.new()
 	
-	var angle =  rng.randf_range(0, 360)
-	var facing = rng.randf_range(0, 2)
+	# var parrotfish_node = get_node("ParrotfishNode")
+	# parrotfish_node.connect("flipfish", flip)
 	
-	# compare angle to values of 0 degrees and 180 degrees to figure out how the slopes should go
+	Xrate = [-40, 40][rng.randi_range(0, 1)]
+	Yrate = [-40, 40][rng.randi_range(0, 1)]
 	
-	if angle > 90:
-		# flip the fish image
-		pass
+	if Xrate > 0:
+		GlobalSignal.flipfish.emit() # communicate to bus, "we need to flip the fish"
+		position.x = -350
+	else:
+		position.x = 350
+	position.y = rng.randf_range(-150, 150)
 	
-	slope = tan(angle)
-	
-	self.rotation_degrees = angle
-	
-	position.x = rng.randf_range(-280, 280)
-	position.y = rng.randf_range(-180, 180)
+	var scalefactor = rng.randf_range(1, 2)
+	self.scale = Vector2(scalefactor, scalefactor)
 
 func _process(delta):
-	position.x += delta * 60
-	position.y += delta * slope * 60
+	position.x += delta * Xrate
+	position.y += delta * sin(deltaSum) * 20
+	deltaSum += delta
+	z_index = 3
+	
