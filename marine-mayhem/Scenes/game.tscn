@@ -48,7 +48,7 @@ scale = Vector2(0.891193, 0.782753)
 zoom = Vector2(1.9, 1.6)
 
 [node name="Bottle" parent="." instance=ExtResource("3_iuuwo")]
-position = Vector2(84, -97)
+position = Vector2(116, -109)
 
 [node name="WaterBackground" type="Sprite2D" parent="."]
 z_index = -6
@@ -72,7 +72,6 @@ vertical_alignment = 1
 script = ExtResource("9_hgm2c")
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

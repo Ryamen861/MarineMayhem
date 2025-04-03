@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b72vmc8rkbl33"]
+[gd_scene load_steps=3 format=3 uid="uid://b72vmc8rkbl33"]
 
 [ext_resource type="Script" path="res://Scripts/bottle.gd" id="1_as3ix"]
-[ext_resource type="Texture2D" uid="uid://dixh50pbbys0o" path="res://Assets/bottle.png" id="1_ek1wg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3yx08"]
 radius = 5.65341
@@ -12,7 +11,6 @@ z_index = -5
 script = ExtResource("1_as3ix")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ek1wg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)
