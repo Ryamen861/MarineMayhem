@@ -1,16 +1,56 @@
 extends Node2D
 
-var fish_present = []
+#@onready var NewNode = preload("res://Scripts/NewNode.gd")
 
-func _ready():
-	$Timer.start()
+var all_fish = []
+var all_bottles = []
+var rng = RandomNumberGenerator.new()
+
+func _ready() -> void:
+	for i in range(0, 11):
+		var new_bottle = Bottle.new()
+		new_bottle.start()
+		new_bottle.position.x = find_x()
+		new_bottle. position.y = find_y()
+		add_child(new_bottle)
+		all_bottles.append(new_bottle)
+		
+		fun_fact()
 	
-func spawn():
-	var obj = preload("res://Scenes/parrotfish.tscn").instantiate()
-	#add_child(obj)
-	fish_present.append(obj)
-	print('spawned')
-
+func find_x():
+	var found_match = false
+	var x: int
+	while !found_match:
+		x = rng.randi_range(-280, 280)
+		for bottle in all_bottles:
+			if (bottle.position.x - 40) < x and x < (bottle.position.x + 40):
+				break
+		found_match = true
+	return x
+	
+func find_y():
+	var found_match = false
+	var y: int
+	while !found_match:
+		y = rng.randi_range(-180, 180)
+		for bottle in all_bottles:
+			if (bottle.position.y - 70) < y and y < (bottle.position.y + 70):
+				break
+		found_match = true
+	return y
 
 func _on_timer_timeout() -> void:
-	spawn()
+	var Fish = Parrotfish.new()
+	Fish.start()
+	add_child(Fish)
+	#all_fish.append(Fish)
+	#print(all_fish)
+	#for i in all_fish:
+		#print(i.position.x)
+		
+		
+func fun_fact():
+	var file = FileAccess.open("res://Scripts/facts.txt", FileAccess.READ)
+	var text_list = file.get_as_text().split("\n")
+	# return text_list[RandomNumberGenerator.new().randi_range(0, 99)]
+	print(text_list)
