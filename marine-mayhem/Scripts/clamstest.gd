@@ -12,8 +12,8 @@ func _ready():
 	upgrade_buttons = {
 		"Button": { "button": get_node("Button"), "cost": 50, "multiplier": 2 },
 		"Button2": { "button": get_node("Button2"), "cost": 100, "multiplier": 3 },
-		"Button3": { "button": get_node("Button3"), "cost": 200, "multiplier": 5 },
-		"Button4": { "button": get_node("Button4"), "cost": 500, "multiplier": 10 }
+		"Button3": { "button": get_node("Button3"), "cost": 500, "multiplier": 5 },
+		"Button4": { "button": get_node("Button4"), "cost": 2500, "multiplier": 10 }
 	}
 
 	# Debugging: Print buttons to check for null values
@@ -29,7 +29,7 @@ func _ready():
 
 func _process(delta):
 	currency += rate * delta  
-	label.text = "Currency: " + str(floor(currency))  
+	label.text = "Clam Currency: " + str(floor(currency))  
 	check_button_states()
 
 func check_button_states():
