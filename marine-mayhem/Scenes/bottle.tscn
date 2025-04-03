@@ -8,6 +8,7 @@ radius = 5.65341
 height = 30.6571
 
 [node name="Bottle" type="Node2D"]
+z_index = -5
 script = ExtResource("1_as3ix")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

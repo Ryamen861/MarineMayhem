@@ -6,7 +6,10 @@ var all_fish = []
 var all_bottles = []
 var rng = RandomNumberGenerator.new()
 
+#@onready var label = $Label
+
 func _ready() -> void:
+			
 	for i in range(0, 11):
 		var new_bottle = Bottle.new()
 		new_bottle.start()
@@ -15,7 +18,6 @@ func _ready() -> void:
 		add_child(new_bottle)
 		all_bottles.append(new_bottle)
 		
-		fun_fact()
 	
 func find_x():
 	var found_match = false
@@ -47,10 +49,9 @@ func _on_timer_timeout() -> void:
 	#print(all_fish)
 	#for i in all_fish:
 		#print(i.position.x)
-		
-		
-func fun_fact():
+	
+func _on_timer_2_timeout():
 	var file = FileAccess.open("res://Scripts/facts.txt", FileAccess.READ)
 	var text_list = file.get_as_text().split("\n")
-	# return text_list[RandomNumberGenerator.new().randi_range(0, 99)]
-	print(text_list)
+	print('sending signal')
+	GlobalSignal.Funfact.emit(text_list[RandomNumberGenerator.new().randi_range(0, 99)])

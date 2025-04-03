@@ -1,4 +1,4 @@
 extends Node
 
-signal flipfish	
-	
+signal Funfact(text)
+signal flipfish
